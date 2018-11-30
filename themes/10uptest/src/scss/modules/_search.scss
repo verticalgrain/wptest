@@ -1,0 +1,90 @@
+.search {
+  &__toggle {
+    width: 60px;
+    height: $nav-row-mobile;
+    z-index: 99;
+    position: fixed;
+    z-index: 99;
+    right: 0;
+    top: 0;
+    background: transparent $icon-search no-repeat center;
+    appearance: none;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    .is-search-toggled & {
+      background-color: $color-blue;
+      background-image: $icon-close;
+    }
+    @media (min-width: $breakpoint-small) {
+      position: relative; 
+    }
+  }
+  &__form {
+    position: fixed;
+    z-index: 97;
+    top: -#{$element-search-form-height};
+    left: 0;
+    height: $element-search-form-height;
+    width: 100vw;
+    padding: 20px;
+    transition-duration: $duration-fast;
+    transition-timing-function: ease-out;
+    background: $color-blue;
+    .is-search-toggled & {
+      top: $nav-row-mobile;
+    }
+    form {
+
+    }
+    input[type="search"] {
+      width: 100%;
+      height: 45px;
+      padding: 0 45px 0 14px;
+      font-size: 16px;
+      appearance: none;
+      border: 0px;
+      &::placeholder {
+        color: $color-gray;
+      }
+    }
+    input[type="submit"] {
+      width: 40px;
+      height: 45px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      appearance: none;
+      border: 0;
+      background: transparent $icon-search-dark no-repeat center;
+    }
+
+    label.screen-reader-text {
+      @include accessible-hide;
+    }
+  }
+
+  @media (min-width: $breakpoint-small) {
+    &__form {
+      max-width: 365px;
+      left: initial;
+      right: 20px;
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    &__form {
+      right: calc( ( 100vw - 1200px ) / 2 + 20px);
+    }
+  }
+}
+
+body {
+  &.is-search-toggled {
+    margin-top: $element-search-form-height;
+    @media (min-width: $breakpoint-small) {
+      margin-top: 0px;
+    }
+  }
+}

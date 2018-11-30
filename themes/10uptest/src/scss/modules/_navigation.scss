@@ -1,0 +1,103 @@
+.navigation {
+  position: fixed;
+  left: 0;
+  top: -($nav-row-mobile * 5);
+  bottom: initial;
+  width: 100vw;
+  height: auto;
+  overflow: scroll;
+  @include defaultTransition;
+  list-style-type: none;
+  padding: 0;
+  margin: $nav-row-mobile 0 0 0;
+  background: $color-blue;
+  &__list {
+    @include listreset;
+    overflow: hidden;
+  }
+  &__item {
+    position: relative;
+    a {
+      display: block;
+      padding: 0 10px 0 18px;      
+      height: $nav-row-mobile;
+      line-height: $nav-row-mobile;
+      color: $color-white;
+      font-size: 18px;
+      text-decoration: underline;
+      @include defaultTransition;
+      &:hover,
+      &:focus {
+        background-color: $color-blue-dark;
+        color: $color-yellow;
+      }
+    }
+    &.current-menu-item {
+      background-color: $color-blue-dark;
+      a {
+        color: $color-yellow;
+      }
+    }
+    &:after {
+      content: "";
+      width: 100vw;
+      height: 1px;
+      display: inline-block;
+      position: absolute;
+      bottom:0;
+      left:0;
+      background: $color-blue-lightest;
+    }
+
+  }
+  .is-nav-toggled & {
+    top: 0;
+  }
+  
+  // Styles for the desktop version of the navigation
+  @media (min-width: $breakpoint-small) {
+    margin: 0;
+    bottom: initial;
+    top: initial;
+    position: relative;
+    &__list {
+      display: flex;
+      margin: 0 auto;
+      max-width: $breakpoint-large;
+      padding: 0 20px;
+    }
+    &__item {
+      a {
+        padding: 0 20px;
+      }
+      &:after {
+        display: none;
+      }
+    }
+    .is-nav-toggled & {
+      top: initial;
+      margin: 0;
+    }
+  }
+}
+
+// Body states for opened and closed navigation
+body {
+  &.is-nav-toggled {
+    margin-top: $nav-row-mobile * 4;
+  }
+  &.single-post {
+    .navigation ul li.navigation__item:nth-of-type(2) {
+      background: $color-blue-dark;
+      a {
+        color: $color-yellow;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-small) {
+    &.is-nav-toggled {
+      margin-top: 0;
+    }
+  }
+}

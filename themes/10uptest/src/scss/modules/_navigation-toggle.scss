@@ -1,0 +1,65 @@
+.navigation-toggle {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 60px;
+  background: transparent;
+  appearance: initial;
+  height: $nav-row-mobile;
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  top: 0;
+  &:hover {
+    cursor: pointer;
+  } 
+  @media (max-width: $breakpoint-small) {
+    display: block;
+  }
+  span {
+    width: 20px;
+    height: 2px;
+    left: 20px;
+    position: absolute;
+    transform-origin: 0;
+    background: white;
+    transition-duration: $duration-fast;
+    &:nth-of-type(1) {
+      top: 20px;
+    }
+    &:nth-of-type(2) {
+      top: 27px;
+      opacity: 1;
+    }
+    &:last-of-type {
+      top: 34px;
+    }
+  }
+  .is-nav-toggled & {
+    background: $color-blue;
+    span {
+      left: 24px;
+      background: white;
+      &:nth-of-type(1) {
+        transform: rotate(45deg)
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:last-of-type {
+        transform: rotate(-45deg)
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-small) {
+    display: none;
+  }
+}
+
+// Lock scrolling when the nav is open
+body {
+  &.is-nav-toggled {
+    overflow: hidden !important;
+  }
+}

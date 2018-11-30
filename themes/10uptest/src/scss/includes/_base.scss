@@ -1,0 +1,9 @@
+*, 
+html {
+  box-sizing: border-box;
+  word-break: break-word;
+}
+body {
+  padding-top: $nav-row-mobile;
+  @include defaultTransition;
+}
