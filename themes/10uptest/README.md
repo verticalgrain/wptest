@@ -1,14 +1,14 @@
-# 10up Test Site 
+# 10up WP Test Site 
 
-WP Kernel is the boilerplate for Wordpress web projects, created by Jamie Graham. 
+Created by Jamie Graham. 
 
-WP Kernel includes:
+Theme tooling:
 * Gulp
 * Browsersync for auto-reloading the browser during development
 * SCSS with autoprefixer, and CSS minification
 * JS concatenation + uglification
 
-To use:
+Theme usage instructions:
 * If not already installed, install [Node and NPM](https://nodejs.org/en/download/)
 * In terminal, navigate to the root of the kernel project and run `npm install`
 * run `gulp`
